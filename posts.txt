@@ -1,0 +1,10 @@
+Struttura della tabella `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(8) NOT NULL,
+  `post_title` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `description` text CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `post_at` date NOT NULL,
+  `stato` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
