@@ -1,11 +1,4 @@
-<!--
-    $titolo = $_POST[ 'post_title' ];
-    $descrizione = $_POST[ 'description' ];
-    $data = $_POST[ 'post_at' ];
-    $id = $_GET['id'];
 
-    $sql = "UPDATE posts SET post_title='{$titolo}', description='{$descrizione}', post_at='{$data}' WHERE id='{$id}'";
-    $pdo_statement = $pdo_conn->prepare($sql);  -->
 
     <?php
 require_once("db.php");
@@ -17,7 +10,6 @@ if(!empty($_POST["save_record"])) {
 
     $sql = "UPDATE posts SET post_title='{$titolo}', description='{$descrizione}', post_at='{$data}' WHERE id='{$id}'";
     $pdo_statement = $pdo_conn->prepare($sql);
-	//$pdo_statement=$pdo_conn->prepare("update posts set post_title='" . $_POST[ 'post_title' ] . "', description='" . $_POST[ 'description' ]. "', post_at='" . $_POST[ 'post_at' ]. "' where id=" . $_GET["id"]);
 	$result = $pdo_statement->execute();
 	if($result) {
         header('location:index.php');
