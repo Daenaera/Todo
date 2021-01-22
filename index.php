@@ -37,7 +37,7 @@ require_once("db.php");
 
 
 <div class="d-flex justify-content-center mt-5 mb-2 p-4" style="align:center">
- <a class="btn btn-primary" href="add.php">Aggiungi un Task <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+ <a class="btn btn-primary" href="add.php">Aggiungi un posts <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
   <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
   <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
 </svg></a>
@@ -57,11 +57,11 @@ require_once("db.php");
 <div class="card border-2 border-primary">
   <div class="card-header" style="background-color: #0dcaf0">
 
-  <h5 > <?php echo $row["post_title"];  ?></h5>
+  <h5 > <?php echo $row["titolo"];  ?></h5>
   </div>
   <div class="card-body" >
-	<h6 class="card-subtitle mb-2 text-muted"><?php echo $row["post_at" ]; ?></h6>
-    <p class="card-text"><?php echo $row["description"]; ?></p>
+	<h6 class="card-subtitle mb-2 text-muted"><?php echo $row["data" ]; ?></h6>
+    <p class="card-text"><?php echo $row["descrizione"]; ?></p>
 
     <a class="mt-1 btn btn-warning" href='edit.php?id=<?php echo $row['id']; ?>'>
 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
@@ -110,3 +110,4 @@ require_once("db.php");
 
 </body>
 </html>
+
