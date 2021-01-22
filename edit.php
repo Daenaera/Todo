@@ -1,15 +1,15 @@
 
-
     <?php
 require_once("db.php");
 if(!empty($_POST["save_record"])) {
-    $titolo = $_POST['post_title'];
-    $descrizione = $_POST['description'];
-    $data = $_POST['post_at'];
+    $titolo = $_POST['titolo'];
+    $descrizione = $_POST['descrizione'];
+    $data = $_POST['data'];
     $id = $_GET['id'];
 
-    $sql = "UPDATE posts SET post_title='{$titolo}', description='{$descrizione}', post_at='{$data}' WHERE id='{$id}'";
+    $sql = "UPDATE posts SET titolo='{$titolo}', descrizione='{$descrizione}', data='{$data}' WHERE id='{$id}'";
     $pdo_statement = $pdo_conn->prepare($sql);
+	//$pdo_statement=$pdo_conn->prepare("update posts set titolo='" . $_POST[ 'titolo' ] . "', descrizione='" . $_POST[ 'descrizione' ]. "', data='" . $_POST[ 'data' ]. "' where id=" . $_GET["id"]);
 	$result = $pdo_statement->execute();
 	if($result) {
         header('location:index.php');
@@ -24,7 +24,7 @@ $result = $pdo_statement->fetchAll();
 
 <html>
 <head>
-<title>Modifica Task</title>
+<title>Modifica posts</title>
 
 
 <!-- Bootstrap CSS -->
@@ -50,19 +50,19 @@ $result = $pdo_statement->fetchAll();
 <div class="card border-2 border-primary p-4">
 
     <form method="post" action="edit.php?id=<?php echo $result[0]['id']; ?>">
-    <h1>Modifica Task</h1>
+    <h1>Modifica posts</h1>
 
-            <label for="validationCustom01" class="form-label">Task</label>
-            <input type="text" name="post_title" class="form-control" value="<?php echo $result[0]['post_title']; ?>" required  />
+            <label for="validationCustom01" class="form-label">posts</label>
+            <input type="text" name="titolo" class="form-control" value="<?php echo $result[0]['titolo']; ?>" required  />
 
  
 
             <label for="validationCustom01" class="form-label">Descrizione</label>
-            <textarea name="description" class="form-control" rows="2"><?php echo $result[0]['description']; ?></textarea>
+            <textarea name="descrizione" class="form-control" rows="2"><?php echo $result[0]['descrizione']; ?></textarea>
 
 
             <label for="validationCustom01" class="form-label">Data</label>
-            <input type="date" name="post_at" class="form-control" value="<?php echo $result[0]['post_at']; ?>" required />
+            <input type="date" name="data" class="form-control" value="<?php echo $result[0]['data']; ?>" required />
 
             <button class="btn btn-primary mt-3" name="save_record" type="submit" value="Save" id="submit">Modifica</button>
 
