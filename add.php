@@ -1,12 +1,13 @@
 
 
+
 <?php
-if(!empty($_POST["add_record"])) {
+if(!empty($_POST["aggiungi"])) {
 	require_once("db.php");
-	$sql = "INSERT INTO posts ( post_title, description, post_at, stato ) VALUES ( :post_title, :description, :post_at, :stato )";
+	$sql = "INSERT INTO posts ( titolo, descrizione, data, stato ) VALUES ( :titolo, :descrizione, :data, :stato )";
 	$pdo_statement = $pdo_conn->prepare( $sql );
 		
-	$result = $pdo_statement->execute( array( ':post_title'=>$_POST['post_title'], ':description'=>$_POST['description'], ':post_at'=>$_POST['post_at'], ':stato'=>"Da fare" ) );
+	$result = $pdo_statement->execute( array( ':titolo'=>$_POST['titolo'], ':descrizione'=>$_POST['descrizione'], ':data'=>$_POST['data'], ':stato'=>"Da fare" ) );
 	if (!empty($result) ){
 	  header('location:index.php');
 	}
@@ -17,7 +18,7 @@ if(!empty($_POST["add_record"])) {
 
 <html>
 <head>
-<title>Aggiungi Task</title>
+<title>Aggiungi posts</title>
 
 
  <!-- Bootstrap CSS -->
@@ -47,22 +48,22 @@ if(!empty($_POST["add_record"])) {
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-        <h1>Nuovo Task</h1>
+        <h1>Nuovo posts</h1>
 
-            <label for="validationCustom01" class="form-label">Task</label>
-            <input type="text" class="form-control" id="post_title" name="post_title" value="" required>
+            <label for="validationCustom01" class="form-label">posts</label>
+            <input type="text" class="form-control" id="titolo" name="titolo" value="" required>
 
 
 
             <label for="validationCustom01" class="form-label">Descrizione</label>
-            <textarea type="text" class="form-control" id="description" name="description" value=""></textarea>
+            <textarea type="text" class="form-control" id="descrizione" name="descrizione" value=""></textarea>
 
 
             <label for="validationCustom01" class="form-label">Data</label>
-            <input type="date" class="form-control" id="post_at" name="post_at" value="" required>
+            <input type="date" class="form-control" id="data" name="data" value="" required>
 
 
-            <button class="btn btn-primary mt-3" name="add_record" type="submit" value="Add" id="submit">Invia</button>
+            <button class="btn btn-primary mt-3" name="aggiungi" type="submit" value="aggiungi" id="submit">Invia</button>
 
     </form>
 
